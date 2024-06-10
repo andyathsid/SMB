@@ -267,16 +267,20 @@ public class Login extends javax.swing.JFrame {
             
         if (r.next()) {
         String role = r.getString("role");  
-        JOptionPane.showMessageDialog(null, "Berhasil login");
+        
         UserSession.setRole(role);
         
         if("admin".equalsIgnoreCase(role) || "superadmin".equalsIgnoreCase(role)){
+            JOptionPane.showMessageDialog(null, "Berhasil login");
             Menu menu = new Menu();
             menu.setVisible(true);
             dispose();
         }
         else {
             JOptionPane.showMessageDialog(null, "Role tidak dikenal! Minta super admin untuk mengatur role akun Anda terlebih dahulu.");
+            Login login = new Login();
+            login.setVisible(true);
+            dispose();
         }
         
 //        if ("Admin".equalsIgnoreCase(role)) {

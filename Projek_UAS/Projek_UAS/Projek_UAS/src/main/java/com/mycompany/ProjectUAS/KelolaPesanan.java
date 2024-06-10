@@ -17,18 +17,27 @@ import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.VerticalAlignment;
 import com.itextpdf.layout.borders.Border;
 import java.awt.Desktop;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 
@@ -555,7 +564,58 @@ public class KelolaPesanan extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_tutupActionPerformed
 
     private void buttonBuatLaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuatLaporanActionPerformed
+               JFileChooser fileChooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Excel Files", "xlsx");
+    fileChooser.setFileFilter(filter);
+    int userSelection = fileChooser.showSaveDialog(this);
 
+    if (userSelection == JFileChooser.APPROVE_OPTION) {
+        File fileToSave = fileChooser.getSelectedFile();
+        String filePath = fileToSave.getAbsolutePath();
+
+        if (!filePath.endsWith(".xlsx")) {
+            filePath += ".xlsx";
+        }
+
+        try {
+            exportToExcel(filePath);
+            JOptionPane.showMessageDialog(this, "Laporan berhasil diekspor ke file " + filePath);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "Terjadi kesalahan saat mengekspor laporan: " + ex.getMessage());
+        }
+    }
+}
+
+    private void exportToExcel(String filePath) throws IOException {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        XSSFSheet sheet = workbook.createSheet("Laporan Pesanan");
+
+        DefaultTableModel model = (DefaultTableModel) tablePesanan.getModel();
+        int rowCount = model.getRowCount();
+        int columnCount = model.getColumnCount();
+
+        
+        XSSFRow headerRow = sheet.createRow(0);
+        for (int i = 0; i < columnCount; i++) {
+            XSSFCell cell = headerRow.createCell(i);
+            cell.setCellValue(model.getColumnName(i));
+        }
+
+        
+        for (int i = 0; i < rowCount; i++) {
+            XSSFRow dataRow = sheet.createRow(i + 1);
+            for (int j = 0; j < columnCount; j++) {
+                XSSFCell cell = dataRow.createCell(j);
+                Object value = model.getValueAt(i, j);
+                if (value != null) {
+                    cell.setCellValue(value.toString());
+                }
+            }
+        }
+
+        try (FileOutputStream outputStream = new FileOutputStream(filePath)) {
+            workbook.write(outputStream);
+        }
     }//GEN-LAST:event_buttonBuatLaporanActionPerformed
 
     private void buttonBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBersihkanActionPerformed
