@@ -78,7 +78,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         labelKelolaPesanan = new javax.swing.JLabel();
         riwayatTransaksi = new javax.swing.JPanel();
-        jt_riwayat = new javax.swing.JLabel();
+        labelRiwayat = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         kelolaAkun = new javax.swing.JPanel();
         jLabel30 = new javax.swing.JLabel();
@@ -354,12 +354,12 @@ public class Menu extends javax.swing.JFrame {
         riwayatTransaksi.setBackground(new java.awt.Color(205, 179, 149));
         riwayatTransaksi.setPreferredSize(new java.awt.Dimension(215, 46));
 
-        jt_riwayat.setFont(new java.awt.Font("Georgia", 1, 17)); // NOI18N
-        jt_riwayat.setForeground(new java.awt.Color(255, 245, 238));
-        jt_riwayat.setText("Riwayat Transaksi");
-        jt_riwayat.addMouseListener(new java.awt.event.MouseAdapter() {
+        labelRiwayat.setFont(new java.awt.Font("Georgia", 1, 17)); // NOI18N
+        labelRiwayat.setForeground(new java.awt.Color(255, 245, 238));
+        labelRiwayat.setText("Riwayat Transaksi");
+        labelRiwayat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jt_riwayatMouseClicked(evt);
+                labelRiwayatMouseClicked(evt);
             }
         });
 
@@ -373,7 +373,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jt_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelRiwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         riwayatTransaksiLayout.setVerticalGroup(
@@ -382,7 +382,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(riwayatTransaksiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jt_riwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelRiwayat, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -552,14 +552,15 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_labelKelolaAkunMouseClicked
 
-    private void jt_riwayatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_riwayatMouseClicked
-        // TODO add your handling code here:
+    private void labelRiwayatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelRiwayatMouseClicked
+        UserSession.setIsCreateOrder(false);
+        new KelolaPesanan().setVisible(true);
         dispose();
-        
-    }//GEN-LAST:event_jt_riwayatMouseClicked
+       
+    }//GEN-LAST:event_labelRiwayatMouseClicked
 
     private void labelKelolaPesananMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelKelolaPesananMouseClicked
-        // TODO add your handling code here:
+
         UserSession.setIsCreateOrder(true);
         Boolean currentIsCreateCust = UserSession.getIsCreateOrder();
         System.out.println("Sebelum lagi: " + currentIsCreateCust);
@@ -578,8 +579,6 @@ public class Menu extends javax.swing.JFrame {
     private void labelDataPelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelDataPelangganMouseClicked
         // TODO add your handling code here:
         UserSession.setIsCreateOrder(false);
-        Boolean currentIsCreateCust = UserSession.getIsCreateOrder();
-        System.out.println("Sebelum lagi: " + currentIsCreateCust);
         dispose();
         new Pelanggan().setVisible(true);
         
@@ -622,11 +621,11 @@ private void pn_mainMouseEntered(java.awt.event.MouseEvent evt) {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel jt_riwayat;
     private javax.swing.JPanel kelolaAkun;
     private javax.swing.JLabel labelDataPelanggan;
     private javax.swing.JLabel labelKelolaAkun;
     private javax.swing.JLabel labelKelolaPesanan;
+    private javax.swing.JLabel labelRiwayat;
     private javax.swing.JPanel logout;
     private javax.swing.JPanel pn_dasar;
     private javax.swing.JPanel riwayatTransaksi;
