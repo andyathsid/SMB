@@ -261,7 +261,7 @@
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="selectFiter" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="labelFilter" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -270,7 +270,7 @@
                                               <Component id="buttonBuatLaporan" min="-2" pref="178" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                                   <Component id="buttonBuatKuitansi" alignment="0" min="-2" pref="178" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="0" attributes="0">
@@ -351,13 +351,17 @@
                                   <Component id="fieldTangMas" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="buttonBersihkan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   <Component id="buttonLanjut" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   <Component id="buttonUbah" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="jb_tutup" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                                   <Component id="buttonHapus" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="buttonBuatKuitansi" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="comboTipeKuitansi" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -370,14 +374,11 @@
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane2" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jb_tutup" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="buttonBuatKuitansi" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="comboTipeKuitansi" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

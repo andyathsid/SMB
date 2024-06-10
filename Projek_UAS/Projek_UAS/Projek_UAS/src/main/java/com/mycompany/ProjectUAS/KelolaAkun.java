@@ -42,7 +42,7 @@ public class KelolaAkun extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablePengguna = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jb_ubah = new javax.swing.JButton();
+        buttonUbah = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -50,8 +50,8 @@ public class KelolaAkun extends javax.swing.JFrame {
         Text_Username = new javax.swing.JTextField();
         Text_Password = new javax.swing.JTextField();
         Text_Nama = new javax.swing.JTextField();
-        jb_bersihkan = new javax.swing.JButton();
-        jb_hapus = new javax.swing.JButton();
+        buttonBersihkan = new javax.swing.JButton();
+        buttonHapus = new javax.swing.JButton();
         jb_tutup = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         Text_notelp = new javax.swing.JTextField();
@@ -156,10 +156,10 @@ public class KelolaAkun extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(205, 179, 149));
         jLabel3.setText("Tabel Pengguna");
 
-        jb_ubah.setText("Ubah");
-        jb_ubah.addActionListener(new java.awt.event.ActionListener() {
+        buttonUbah.setText("Ubah");
+        buttonUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_ubahActionPerformed(evt);
+                buttonUbahActionPerformed(evt);
             }
         });
 
@@ -179,17 +179,17 @@ public class KelolaAkun extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(205, 179, 149));
         jLabel11.setText("Nama :");
 
-        jb_bersihkan.setText("Bersihkan");
-        jb_bersihkan.addActionListener(new java.awt.event.ActionListener() {
+        buttonBersihkan.setText("Bersihkan");
+        buttonBersihkan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_bersihkanActionPerformed(evt);
+                buttonBersihkanActionPerformed(evt);
             }
         });
 
-        jb_hapus.setText("Hapus");
-        jb_hapus.addActionListener(new java.awt.event.ActionListener() {
+        buttonHapus.setText("Hapus");
+        buttonHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jb_hapusActionPerformed(evt);
+                buttonHapusActionPerformed(evt);
             }
         });
 
@@ -243,7 +243,7 @@ public class KelolaAkun extends javax.swing.JFrame {
                         .addGap(15, 15, 15)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
-                            .addComponent(jb_bersihkan, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonBersihkan, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
                             .addComponent(jLabel11)
@@ -267,9 +267,9 @@ public class KelolaAkun extends javax.swing.JFrame {
                                             .addComponent(jScrollPane2)
                                             .addComponent(Role, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jb_hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jb_ubah, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jb_tutup, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(322, 322, 322))
@@ -319,10 +319,10 @@ public class KelolaAkun extends javax.swing.JFrame {
                     .addComponent(Text_notelp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jb_bersihkan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonBersihkan, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonHapus, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jb_tutup, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_ubah, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonUbah, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(139, 139, 139))
         );
 
@@ -354,7 +354,7 @@ public class KelolaAkun extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jb_ubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_ubahActionPerformed
+    private void buttonUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUbahActionPerformed
         // TODO add your handling code here:
         String id = fieldID.getText();
         String usernm = Text_Username.getText();
@@ -364,19 +364,19 @@ public class KelolaAkun extends javax.swing.JFrame {
         String almt = Text_alamat.getText();
         String rl = (String) Role.getSelectedItem();
 
-if(usernm.equals("")){
-    JOptionPane.showMessageDialog(null, "Isi Username Terlebih Dahulu");
-}else if(pw.equals("")){
-    JOptionPane.showMessageDialog(null, "Isi Password Terlebih Dahulu");
-}else if(nm.equals("")){
-    JOptionPane.showMessageDialog(null, "Isi Nama Terlebih Dahulu");
-}else if(notelp.equals("")){
-    JOptionPane.showMessageDialog(null, "Isi No Telp Terlebih Dahulu");
-}else if(almt.equals("")){
-    JOptionPane.showMessageDialog(null, "Isi Alamat Terlebih Dahulu");
-}else if(rl.equals("Pilih Role")){
-    JOptionPane.showMessageDialog(null, "Pilih Role Terlebih Dahulu");
-}else{
+        if(usernm.equals("")){
+            JOptionPane.showMessageDialog(null, "Isi Username Terlebih Dahulu");
+        }else if(pw.equals("")){
+            JOptionPane.showMessageDialog(null, "Isi Password Terlebih Dahulu");
+        }else if(nm.equals("")){
+            JOptionPane.showMessageDialog(null, "Isi Nama Terlebih Dahulu");
+        }else if(notelp.equals("")){
+            JOptionPane.showMessageDialog(null, "Isi No Telp Terlebih Dahulu");
+        }else if(almt.equals("")){
+            JOptionPane.showMessageDialog(null, "Isi Alamat Terlebih Dahulu");
+        }else if(rl.equals("Pilih Role")){
+            JOptionPane.showMessageDialog(null, "Pilih Role Terlebih Dahulu");
+        }else{
     try {
         String Vsql = "UPDATE admin SET username = ?, password = ?, nama = ?, no_telp = ?, alamat = ?, role = ? WHERE id_admin = ?";
         java.sql.Connection vconn = (Connection) Database.konfig();
@@ -406,14 +406,14 @@ if(usernm.equals("")){
     }
 }
 
-    }//GEN-LAST:event_jb_ubahActionPerformed
+    }//GEN-LAST:event_buttonUbahActionPerformed
 
-    private void jb_bersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_bersihkanActionPerformed
+    private void buttonBersihkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBersihkanActionPerformed
         // TODO add your handling code here:
         bersih();
-    }//GEN-LAST:event_jb_bersihkanActionPerformed
+    }//GEN-LAST:event_buttonBersihkanActionPerformed
 
-    private void jb_hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_hapusActionPerformed
+    private void buttonHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHapusActionPerformed
         String id = fieldID.getText();
         String usernm = Text_Username.getText();
         String pw = Text_Password.getText();
@@ -439,7 +439,7 @@ if(usernm.equals("")){
             JOptionPane.showMessageDialog(this,e.getMessage());
         }
         }
-    }//GEN-LAST:event_jb_hapusActionPerformed
+    }//GEN-LAST:event_buttonHapusActionPerformed
 
     private void jb_tutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_tutupActionPerformed
         dispose();
@@ -536,6 +536,9 @@ if(usernm.equals("")){
     private javax.swing.JTextField Text_Username;
     private javax.swing.JTextArea Text_alamat;
     private javax.swing.JTextField Text_notelp;
+    private javax.swing.JButton buttonBersihkan;
+    private javax.swing.JButton buttonHapus;
+    private javax.swing.JButton buttonUbah;
     private javax.swing.JTextField fieldID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -553,10 +556,7 @@ if(usernm.equals("")){
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jb_bersihkan;
-    private javax.swing.JButton jb_hapus;
     private javax.swing.JButton jb_tutup;
-    private javax.swing.JButton jb_ubah;
     private javax.swing.JPanel pn_dasar;
     private javax.swing.JTable tablePengguna;
     // End of variables declaration//GEN-END:variables

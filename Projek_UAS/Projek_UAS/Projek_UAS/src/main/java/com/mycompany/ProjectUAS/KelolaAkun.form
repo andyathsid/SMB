@@ -199,7 +199,7 @@
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jb_bersihkan" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="buttonBersihkan" alignment="0" min="-2" pref="86" max="-2" attributes="0"/>
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
@@ -228,9 +228,9 @@
                                               </Group>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="jb_hapus" min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Component id="buttonHapus" min="-2" pref="86" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jb_ubah" min="-2" pref="83" max="-2" attributes="0"/>
+                                              <Component id="buttonUbah" min="-2" pref="83" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
                                               <Component id="jb_tutup" min="-2" pref="83" max="-2" attributes="0"/>
                                           </Group>
@@ -299,10 +299,10 @@
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jb_bersihkan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="jb_hapus" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="buttonBersihkan" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="buttonHapus" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="jb_tutup" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          <Component id="jb_ubah" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="buttonUbah" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
                   </Group>
@@ -390,12 +390,12 @@
                 <Property name="text" type="java.lang.String" value="Tabel Pengguna"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jb_ubah">
+            <Component class="javax.swing.JButton" name="buttonUbah">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ubah"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_ubahActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUbahActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -448,20 +448,20 @@
             </Component>
             <Component class="javax.swing.JTextField" name="Text_Nama">
             </Component>
-            <Component class="javax.swing.JButton" name="jb_bersihkan">
+            <Component class="javax.swing.JButton" name="buttonBersihkan">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Bersihkan"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_bersihkanActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonBersihkanActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jb_hapus">
+            <Component class="javax.swing.JButton" name="buttonHapus">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hapus"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_hapusActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHapusActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jb_tutup">

@@ -445,7 +445,7 @@ public class Pelanggan extends javax.swing.JFrame {
                  Connection Vconn = (Connection)Database.konfig(); 
                  int idPelanggan = -1;
 
-                 // Check if the pelanggan exists
+  
                  String checkSql = "SELECT Id_Pelanggan FROM pelanggan WHERE Nama = ? AND No_Telp = ? AND Email = ? AND Alamat = ?";
                  PreparedStatement checkStmt = Vconn.prepareStatement(checkSql);
                  checkStmt.setString(1, nama);
@@ -454,10 +454,10 @@ public class Pelanggan extends javax.swing.JFrame {
                  checkStmt.setString(4, alamat);
                  ResultSet rs = checkStmt.executeQuery();
                  if (rs.next()) {
-                     // If exists, get the Id_Pelanggan
+
                      idPelanggan = rs.getInt("Id_Pelanggan");
                  } else {
-                     // If not, insert a new pelanggan and get the generated Id_Pelanggan
+           
                      String insertSql = "INSERT INTO pelanggan (Nama, No_Telp, Email, Alamat) VALUES (?, ?, ?, ?)";
                      PreparedStatement insertStmt = Vconn.prepareStatement(insertSql, Statement.RETURN_GENERATED_KEYS);
                      insertStmt.setString(1, nama);
@@ -476,7 +476,7 @@ public class Pelanggan extends javax.swing.JFrame {
                      }
                  }
 
-                 // Insert into pesan_pelanggan
+         
                  String sql = "INSERT INTO pesan_pelanggan (Permintaan_Jahitan, Harga, Tanggal_Masuk, Tanggal_Keluar, Pengerjaan, Keterangan, Id_Pelanggan) VALUES (?, ?, ?, ?, ?, ?, ?)";
                  PreparedStatement pstmt2 = Vconn.prepareStatement(sql);
                  pstmt2.setString(1, perm_jhtn);
@@ -506,9 +506,9 @@ public class Pelanggan extends javax.swing.JFrame {
                  String noTelp = fieldNoTelp.getText();
                  String alamat = fieldAlamat.getText();
                  String email = fieldEmail.getText();
-                 // query dan koneksi ke database
-                 String sql = "INSERT INTO pelanggan (Nama, No_Telp, Email, Alamat) VALUES ('" + nama + "', '" + noTelp + "', '" + alamat + "', '" + email + "')";
-                 Connection Vconn = (Connection)Database.konfig(); // Gunakan metode koneksi yang sesuai
+
+                 String sql = "INSERT INTO pelanggan (Nama, No_Telp, Email, Alamat) VALUES ('" + nama + "', '" + noTelp + "', '" + email + "', '" + alamat + "')";
+                 Connection Vconn = (Connection)Database.konfig(); 
                  Statement stmt = Vconn.createStatement();
                  int rowsInserted = stmt.executeUpdate(sql);
                  if (rowsInserted > 0) {
