@@ -12,7 +12,6 @@ public class UserSession {
     private static String role;
     private static Boolean isCreateOrder;
     private static Boolean isIsOrderCompleted;
-
     public static void setRole(String roleValue) {
         role = roleValue;
     }
@@ -36,4 +35,6 @@ public class UserSession {
     public static Boolean getIsOrderCompleted() {
         return isCreateOrder;
     }
+    
+    
 }

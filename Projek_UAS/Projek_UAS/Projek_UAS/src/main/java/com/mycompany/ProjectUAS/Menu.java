@@ -74,9 +74,6 @@ public class Menu extends javax.swing.JFrame {
         textLogout = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        cetakLaporan = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
         buatPesanan = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         labelKelolaPesanan = new javax.swing.JLabel();
@@ -319,41 +316,6 @@ public class Menu extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(255, 245, 238));
         jLabel13.setText("Riwayat Transaksi");
 
-        cetakLaporan.setBackground(new java.awt.Color(205, 179, 149));
-        cetakLaporan.setPreferredSize(new java.awt.Dimension(215, 46));
-
-        jLabel26.setFont(new java.awt.Font("Georgia", 1, 17)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 245, 238));
-        jLabel26.setText("Cetak Laporan");
-        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel26MouseClicked(evt);
-            }
-        });
-
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cetaklaporan.png"))); // NOI18N
-
-        javax.swing.GroupLayout cetakLaporanLayout = new javax.swing.GroupLayout(cetakLaporan);
-        cetakLaporan.setLayout(cetakLaporanLayout);
-        cetakLaporanLayout.setHorizontalGroup(
-            cetakLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cetakLaporanLayout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        cetakLaporanLayout.setVerticalGroup(
-            cetakLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cetakLaporanLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(cetakLaporanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         buatPesanan.setBackground(new java.awt.Color(205, 179, 149));
         buatPesanan.setPreferredSize(new java.awt.Dimension(215, 46));
 
@@ -484,13 +446,12 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(229, 229, 229))
                     .addGroup(SidebarLayout.createSequentialGroup()
-                        .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cetakLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buatPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(riwayatTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(buatPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(SidebarLayout.createSequentialGroup()
-                        .addComponent(kelolaAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(SidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kelolaAkun, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(riwayatTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         SidebarLayout.setVerticalGroup(
@@ -510,10 +471,8 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(dataPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(cetakLaporan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
                 .addComponent(riwayatTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addGap(188, 188, 188)
                 .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(119, 119, 119))
         );
@@ -543,7 +502,7 @@ public class Menu extends javax.swing.JFrame {
             pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_dasarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -596,7 +555,7 @@ public class Menu extends javax.swing.JFrame {
     private void jt_riwayatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_riwayatMouseClicked
         // TODO add your handling code here:
         dispose();
-        new Riwayat().setVisible(true);
+        
     }//GEN-LAST:event_jt_riwayatMouseClicked
 
     private void labelKelolaPesananMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelKelolaPesananMouseClicked
@@ -609,10 +568,6 @@ public class Menu extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_labelKelolaPesananMouseClicked
-
-    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel26MouseClicked
 
     private void textLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_textLogoutMouseClicked
         // TODO add your handling code here:
@@ -642,7 +597,6 @@ private void pn_mainMouseEntered(java.awt.event.MouseEvent evt) {
     private javax.swing.JLabel Logo;
     private javax.swing.JPanel Sidebar;
     private javax.swing.JPanel buatPesanan;
-    private javax.swing.JPanel cetakLaporan;
     private javax.swing.JPanel dataPelanggan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -650,8 +604,6 @@ private void pn_mainMouseEntered(java.awt.event.MouseEvent evt) {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel33;

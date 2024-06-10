@@ -177,7 +177,7 @@ public class KelolaPesanan extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Myanmar Text", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 245, 238));
-        jLabel1.setText("PESANAN");
+        jLabel1.setText("KELOLA PESANAN");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -643,75 +643,6 @@ public class KelolaPesanan extends javax.swing.JFrame {
         }        
     }//GEN-LAST:event_tablePesananMouseClicked
 
-    private void filterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterItemStateChanged
-        String selectedItem = (String) evt.getItem();
-
-        if (selectedItem.equals("Semua")) {
-            tampilTabel();
-
-        } else if (selectedItem.equals("Selesai")) {
-            try {
-                String query = "SELECT p.Tanggal_Masuk, pl.Nama, p.Permintaan_Jahitan, p.Harga, p.Keterangan "
-                + "FROM pelanggan pl "
-                + "JOIN pesan_pelanggan p ON pl.id_pelanggan = p.id_pelanggan "
-                + "WHERE COALESCE(p.Tanggal_Keluar, '') != ''";
-
-                java.sql.Connection vconn = (Connection) Database.konfig();
-                java.sql.Statement s = vconn.createStatement();
-                java.sql.ResultSet r = s.executeQuery(query);
-
-                DefaultTableModel tb = new DefaultTableModel();
-                tb.addColumn("Tanggal Masuk");
-                tb.addColumn("Nama");
-                tb.addColumn("Permintaan Jahitan");
-                tb.addColumn("Harga");
-                tb.addColumn("Keterangan");
-
-                while (r.next()) {
-                    tb.addRow(new Object[]{
-                        r.getString("Tanggal_Masuk"),
-                        r.getString("Nama"),
-                        r.getString("Permintaan_Jahitan"),
-                        r.getInt("Harga"),
-                        r.getString("Keterangan")
-                    });
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else if (selectedItem.equals("Ongoing")) {
-            try {
-                String query = "SELECT p.Tanggal_Masuk, pl.Nama, p.Permintaan_Jahitan, p.Harga, p.Keterangan "
-                + "FROM pelanggan pl "
-                + "JOIN pesan_pelanggan p ON pl.id_pelanggan = p.id_pelanggan "
-                + "WHERE COALESCE(p.Tanggal_Keluar, '') = ''";
-
-                java.sql.Connection vconn = (Connection) Database.konfig();
-                java.sql.Statement s = vconn.createStatement();
-                java.sql.ResultSet r = s.executeQuery(query);
-
-                DefaultTableModel tb = new DefaultTableModel();
-                tb.addColumn("Tanggal Masuk");
-                tb.addColumn("Nama");
-                tb.addColumn("Permintaan Jahitan");
-                tb.addColumn("Harga");
-                tb.addColumn("Keterangan");
-
-                while (r.next()) {
-                    tb.addRow(new Object[]{
-                        r.getString("Tanggal_Masuk"),
-                        r.getString("Nama"),
-                        r.getString("Permintaan_Jahitan"),
-                        r.getInt("Harga"),
-                        r.getString("Keterangan")
-                    });
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }//GEN-LAST:event_filterItemStateChanged
-
     private void buttonBuatKuitansiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBuatKuitansiActionPerformed
         String tipeKuitansi = (String) comboTipeKuitansi.getSelectedItem();
         String idPesanan = fieldIdPesanan.getText();
@@ -767,7 +698,12 @@ public class KelolaPesanan extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboTipeKuitansiActionPerformed
 
-public void tampilTabel() {
+    private void filterItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filterItemStateChanged
+        String selectedItem = (String) evt.getItem();
+
+        if (selectedItem.equals("Semua")) {
+            tampilTabel();
+        } else if (selectedItem.equals("Selesai")) {
     DefaultTableModel tb = new DefaultTableModel();
     fieldIdPesanan.setText("Otomatis terisi");
     tb.addColumn("Id");
@@ -777,33 +713,115 @@ public void tampilTabel() {
     tb.addColumn("Tanggal_Keluar");
     tb.addColumn("Pengerjaan");
     tb.addColumn("Keterangan");
-    tb.addColumn("Nama Pelanggan"); // Add a new column for Nama
+    tb.addColumn("Nama Pelanggan");
 
-    try {
-        String query = "SELECT pp.*, p.Nama " +
-                       "FROM pesan_pelanggan pp " +
-                       "JOIN pelanggan p ON pp.Id_Pelanggan = p.Id_Pelanggan";
-        java.sql.Connection vconn = (Connection) Database.konfig();
-        java.sql.Statement s = vconn.createStatement();
-        java.sql.ResultSet r = s.executeQuery(query);
-        int counter = 1;
-        while (r.next()) {
-            tb.addRow(new Object[]{
-                r.getString("id_pesanan"),
-                r.getString("permintaan_jahitan"),
-                r.getString("harga"),
-                r.getString("tanggal_masuk"),
-                r.getString("tanggal_keluar"),
-                r.getString("pengerjaan"),
-                r.getString("keterangan"),
-                r.getString("Nama") 
-            });
-        }
-        tablePesanan.setModel(tb);
-    } catch (Exception e) {
-        e.printStackTrace();
+    if (selectedItem.equals("Selesai")) {
+        try {
+            String query = "SELECT pp.id_pesanan, pp.permintaan_jahitan, pp.harga, pp.tanggal_masuk, pp.tanggal_keluar, pp.pengerjaan, pp.keterangan, p.Nama " +
+                           "FROM pesan_pelanggan pp " +
+                           "JOIN pelanggan p ON pp.Id_Pelanggan = p.Id_Pelanggan " +
+                           "WHERE COALESCE(pp.Tanggal_Keluar, '') != ''";
+
+            java.sql.Connection vconn = (Connection) Database.konfig();
+            java.sql.Statement s = vconn.createStatement();
+            java.sql.ResultSet r = s.executeQuery(query);
+
+            while (r.next()) {
+                tb.addRow(new Object[]{
+                    r.getString("id_pesanan"),
+                    r.getString("permintaan_jahitan"),
+                    r.getString("harga"),
+                    r.getString("tanggal_masuk"),
+                    r.getString("tanggal_keluar"),
+                    r.getString("pengerjaan"),
+                    r.getString("keterangan"),
+                    r.getString("Nama")
+                });
+            }
+
+            tablePesanan.setModel(tb);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
+        } else if (selectedItem.equals("Ongoing")) {
+            try {
+                String query = "SELECT pp.id_pesanan, pp.permintaan_jahitan, pp.harga, pp.tanggal_masuk, pp.tanggal_keluar, pp.pengerjaan, pp.keterangan, p.Nama " +
+                               "FROM pesan_pelanggan pp " +
+                               "JOIN pelanggan p ON pp.Id_Pelanggan = p.Id_Pelanggan " +
+                               "WHERE COALESCE(pp.Tanggal_Keluar, '') = ''";
+
+                java.sql.Connection vconn = (Connection) Database.konfig();
+                java.sql.Statement s = vconn.createStatement();
+                java.sql.ResultSet r = s.executeQuery(query);
+
+                DefaultTableModel tb = new DefaultTableModel();
+                tb.addColumn("Id");
+                tb.addColumn("Permintaan Jahitan");
+                tb.addColumn("Harga");
+                tb.addColumn("Tanggal_Masuk");
+                tb.addColumn("Tanggal_Keluar");
+                tb.addColumn("Pengerjaan");
+                tb.addColumn("Keterangan");
+                tb.addColumn("Nama Pelanggan");
+
+                while (r.next()) {
+                    tb.addRow(new Object[]{
+                        r.getString("id_pesanan"),
+                        r.getString("permintaan_jahitan"),
+                        r.getString("harga"),
+                        r.getString("tanggal_masuk"),
+                        r.getString("tanggal_keluar"),
+                        r.getString("pengerjaan"),
+                        r.getString("keterangan"),
+                        r.getString("Nama")
+                    });
+                }
+                tablePesanan.setModel(tb);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }//GEN-LAST:event_filterItemStateChanged
+
+    public void tampilTabel() {
+        DefaultTableModel tb = new DefaultTableModel();
+        fieldIdPesanan.setText("Otomatis terisi");
+        tb.addColumn("Id");
+        tb.addColumn("Permintaan Jahitan");
+        tb.addColumn("Harga");
+        tb.addColumn("Tanggal_Masuk");
+        tb.addColumn("Tanggal_Keluar");
+        tb.addColumn("Pengerjaan");
+        tb.addColumn("Keterangan");
+        tb.addColumn("Nama Pelanggan"); 
+
+        try {
+            String query = "SELECT pp.*, p.Nama " +
+                           "FROM pesan_pelanggan pp " +
+                           "JOIN pelanggan p ON pp.Id_Pelanggan = p.Id_Pelanggan";
+            java.sql.Connection vconn = (Connection) Database.konfig();
+            java.sql.Statement s = vconn.createStatement();
+            java.sql.ResultSet r = s.executeQuery(query);
+            int counter = 1;
+            while (r.next()) {
+                tb.addRow(new Object[]{
+                    r.getString("id_pesanan"),
+                    r.getString("permintaan_jahitan"),
+                    r.getString("harga"),
+                    r.getString("tanggal_masuk"),
+                    r.getString("tanggal_keluar"),
+                    r.getString("pengerjaan"),
+                    r.getString("keterangan"),
+                    r.getString("Nama") 
+                });
+            }
+            tablePesanan.setModel(tb);
+        } catch (Exception e) {
+            e.printStackTrace();
+            }
+       }
     
     private void bersih() {
         fieldIdPesanan.setText("Otomatis Terisi");
